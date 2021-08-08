@@ -1,0 +1,151 @@
+{% extends './base.html'%}
+{% load static %}
+{% block content %}
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+    * {
+  box-sizing: border-box;
+}
+
+/* Create two equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 50%;
+  padding: 10px;
+  height: 300px; /* Should be removed. Only for demonstration */
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+
+
+
+    .modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: auto; /* Full width */
+  height: auto ; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+
+
+</style>
+
+<section class="header19 cid-szbMuUOhDo mbr-fullscreen" id="header19-10">
+
+    <div class="container-fluid">
+        <div class="media-container">
+            <div class="col-md-12 align-center">
+                <h1 class="mbr-section-title mbr-white mbr-bold mbr-fonts-style mb-3 display-5">Hello {{ user_name }}</h1>
+                <p class="mbr-text mbr-white mbr-fonts-style display-7">
+                    Full screen intro with background image, color overlay and icons
+                </p>
+                
+
+                <div class="row justify-content-center">
+                    <div class="col-12 col-md-6 col-lg-3">
+                        <div class="card-wrapper">
+                            <div class="card-box align-center">
+                                <button id="myBtn" h4 class="btn card-title align-center mbr-black mbr-fonts-style display-5"><strong>My Profile</strong></h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-3">
+                        <div class="card-wrapper">
+                            <div class="card-box align-center">
+                                <h4 class="btn card-title align-center mbr-black mbr-fonts-style display-5">
+                                    <strong>My Notes</strong></h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-3">
+                        <div class="card-wrapper">
+                            <div class="card-box align-center">
+                                <h4 class="btn card-title align-center mbr-black mbr-fonts-style display-5"><strong><a href="" style="color: white;"> Upload</a></strong></h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-3">
+                        <div class="card-wrapper">
+                            <div class="card-box align-center">
+                                
+                               <button type="button" h4 class="btn card-title align-center mbr-black mbr-fonts-style display-5 "><strong"><a href="{% url 'logout_view' %}" style="color: white;">Logout</a></strong></h4>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</section>
+
+<!--Modal-->
+
+
+<div id="myModal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <body>
+
+        <div class="row">
+            <div class="column" style="background-color:transparent;">
+                <img src='/media/{{ user_profileimg }}' class="card-img-top" alt="...">
+            </div>
+            <div class="column" style="background-color:transparent;">
+                <h5 class="card-title">{{ user_name }}</h5>
+                <h4> Phone No: {{ user_mobile }} </h4>
+                <h4> Phone No: {{ user_mobile }} </h4>
+                <h4> Phone No: {{ user_mobile }} </h4>
+                <h4> Phone No: {{ user_mobile }} </h4>
+                <h4> Phone No: {{ user_mobile }} </h4>
+            </div>
+          
+          
+      </body>
+    </div>
+  
+  </div>
+
+
+
+
+
+
+{% endblock %}

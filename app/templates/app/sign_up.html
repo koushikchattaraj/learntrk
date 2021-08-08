@@ -1,0 +1,146 @@
+{% extends './base.html'%}
+{% load static %}
+{% block content %}
+  <style>
+	  body{
+    background-color: #f1f1f1;
+  }
+  .register-form{
+    margin: 50px auto;
+    padding: 25px 50px;
+    background-color: #a4508b;
+    background-image: linear-gradient(326deg, #a4508b 0%, #5f0a87 74%);
+    box-shadow: 2px 2px 4px #ab8de0;
+    
+    border-radius: 5px;
+    color: #fff;
+    
+  }
+  .register-form h2{
+	text-align: center;
+	padding: 22px;
+    margin-top: 0px;
+    margin-bottom: 15px;
+    
+    border-radius: 10px;
+    border: 1px solid #25055f;
+  }
+  .reg_frm{
+	margin-top: 50px;
+  }
+
+  .register-form h3 {
+	text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 23px;!important
+    border-radius: 10px;
+    border: 1px solid #25055f;
+
+}
+  
+
+}
+  </style>
+
+<script>
+	function degs(x){
+
+		  if (x == 0){
+
+		   document.getElementById("spelazitaon").style.display='block';
+		   document.getElementById("spelazitaon").required = false;
+		  }else{
+		   document.getElementById("spelazitaon").style.display='none';
+		  }
+		  
+		  if (x == 0) {
+		  document.getElementById("about").style.display='block';
+		  document.getElementById("about").required = false;
+		  }
+
+
+		  
+		  else document.getElementById("about").style.display='none';
+		  return;
+	  }
+
+</script>
+
+<div class="container">
+	<div class="row reg_frm">
+	  
+		<div class="register-form">
+		  <form action="" method="POST" enctype="multipart/form-data">
+			{% csrf_token %}
+			  <h2>Create Your Account</h2>
+			  <br/>
+			  
+			<div class="form-group">
+			  <input type="text" name="name" id="name" autofocus class="form-control" placeholder="Name" required="required">
+			</div>
+			
+			<div class="form-group">
+				  <input type="email" name="email" id="email" class="form-control" placeholder="Email" required="required">
+			</div>
+			<div class="form-group">
+				  <input type="text" name="mobile" id="mobile" class="input-medium bfh-phone form-control" data-country="INDIA" placeholder="Mobile No" required="required">
+			</div>
+			
+			<div class="form-group">
+			  <input type="password" name="password" id="password" class="form-control" placeholder="Password" required="required">
+			</div>
+			
+			<div class="form-group" radio__input >
+				<h3>
+				<label for="type">You Are : </label>
+					<input type="radio" name="deg" id="deg" value="teacher" size="10" required onclick="degs(0)">Teacher
+					<input type="radio" name="deg" id="deg" value="student" size="10" required onclick="degs(1)">Student
+				</h3>
+			</div>
+			<div class="form-group" radio__input >
+				<h3>
+				<label for="sex">You Are : </label>
+					<input type="radio" name="sex" id="sex" value="male" size="10" required>Male
+					<input type="radio" name="sex" id="sex" value="Female" size="10" required>Female 
+				</h3>
+			</div>
+			<div class="form-group">
+				<input type="degree" name="degree" id="degree" class="form-control" placeholder="Degree" required="required">
+		  </div>
+
+		  <div class="form-group" >
+			<input type="spealazitaion" id="spelazitaon" name="spelazitaon" class="form-control" placeholder="Spealazitaion" required="required">
+	  		</div>
+
+			<div class="form-group" >
+				<input type="About Yourself" id="about" name="about" class="form-control" placeholder="About Yourself" required="required">
+		</div>
+
+
+			<div class="form-group frm">
+				<label for="image">Profile Photo : </label>
+				<input type="file" id="profileimg" name="profileimg" accept="image/png, image/gif, image/jpeg, image/jpg">
+		</div>
+
+			<div class="form-group frm">
+			  <label class="checkbox-inline">
+				<input type="checkbox" required="required"> You agree to the <a href="">Terms</a> & <a href="">Conditions</a>.
+			  </label>
+			</div>
+			
+			<div class="form-group">
+				  <input type="submit" value="sign_up" class="btn btn-primary btn-block btn-lg" tabindex="7">
+			</div>
+			
+
+		  </form>
+		</div>
+	  </div>
+	</div>
+  </div>
+  
+  
+
+
+{% endblock %}
